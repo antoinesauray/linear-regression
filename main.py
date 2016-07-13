@@ -1,6 +1,8 @@
 import numpy
 import scipy
 import cost
+import gradient_descent
+import plot
 data = numpy.loadtxt(open("./ex1data1.txt","rb"),delimiter=",")
 
 # test hypothesis
@@ -22,5 +24,11 @@ Theta = numpy.zeros((2,1))
 #print type(Y)
 #print Y.shape
 
-cost = cost.compute(Theta, X, Y)
-print "cost without training: ",cost
+old_cost = cost.compute(Theta, X, Y)
+print "cost without training: ",old_cost
+#plot.compare(data[:,0], data[:,1], X, Theta, "Surface in m^2", "Price")
+
+new_theta = gradient_descent.compute(Theta, X, Y, 0.01, 1500)
+print 'new theta',new_theta
+print 'new cost', cost.compute(new_theta, X, Y)
+plot.compare(data[:,0], data[:,1], X, new_theta, "Surface in m^2", "Price")
