@@ -1,2 +1,6 @@
-# logistic-regression
-Basic Python Logistic Regression
+# linear-regression
+Python Linear Regression
+
+Python implementation of Coursera Machine Learning Course
+
+Linear Regression
